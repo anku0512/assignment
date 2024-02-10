@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import Counter from "./Counter/Counter";
+
+import {Box} from "@chakra-ui/react";
+import TextEditor from "./Editor/TextEditor";
+import MainFormContainer from "./MainFormContainer";
+
+export const USER_DATA_STORAGE_KEY = "user_data_key"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+          <MainFormContainer />
+      </div>
   );
 }
 
