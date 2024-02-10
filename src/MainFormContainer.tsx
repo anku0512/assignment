@@ -50,12 +50,8 @@ function MainFormContainer() {
             columnGap: 3,
             rowGap: 3,
             gridTemplateColumns: 'repeat(2, 1fr)',
-            marginTop: 10,
-            marginBottom: 10,
+            margin: 10,
             overflow: "hidden",
-
-            // justifyContent: 'center',
-
         }}>
             <Counter />
             <TextEditor />
