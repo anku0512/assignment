@@ -1,0 +1,10 @@
+.tiptap {
+    border: 1px solid red;
+    border-radius: 6px;
+    height: 100%;
+
+
+    > * + * {
+        margin-top: 0.75em;
+    }
+}

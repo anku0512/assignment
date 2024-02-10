@@ -39,7 +39,7 @@ function ContactForm({state, setState}: UserDataFormProps) {
         return true;
     };
     return (
-        <Box className='boxLayout' >
+        <Box className='boxLayout'>
 
             <Heading as='h3' size='lg'> Contact Form </Heading>
             <Formik

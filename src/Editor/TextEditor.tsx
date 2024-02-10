@@ -3,6 +3,7 @@ import {EditorProvider, generateHTML} from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import {USER_DATA_STORAGE_KEY} from "../App";
 import {Box} from "@chakra-ui/react";
+import './style.css';
 
 const extensions = [
     StarterKit,
@@ -10,7 +11,7 @@ const extensions = [
 const EDITOR_STORAGE_KEY = "editor_data_key"
 
 function TextEditor() {
-    const [content, setContent] = useState<any>(null)
+    const [content, setContent] = useState<any>("testing")
 
     useEffect(() => {
         let x = localStorage.getItem(EDITOR_STORAGE_KEY)

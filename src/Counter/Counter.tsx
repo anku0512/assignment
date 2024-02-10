@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {Box, Button} from "@chakra-ui/react";
+import {Box, Button, Heading} from "@chakra-ui/react";
 import "../App.css"
 
 
 
 const COUNTER_STORAGE_KEY = 'counter_value';
-
+const MAX_COUNTER_VALUE = 10;
 function Counter() {
     const [count, setCount] = useState(0)
 
     function handleAdd() {
-        setItemValue(count + 1)
+        setItemValue(Math.min(count + 1, MAX_COUNTER_VALUE));
+        console.log(count)
     }
 
     function handleMinus() {
@@ -36,8 +37,8 @@ function Counter() {
         }
     }, []);
     return (
-        <Box className='boxLayout' >
-            <h1>{count}</h1>
+        <Box className='boxLayout' backgroundColor='transparent'>
+            <Heading>{count}</Heading>
             <Box sx={{display: 'flex', gap: 4}}>
                 <Button colorScheme='blue' onClick={handleMinus}>-</Button>
                 <Button colorScheme= 'blue' onClick={handleReset}>Reset</Button>
