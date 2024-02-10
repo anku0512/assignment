@@ -66,11 +66,11 @@ function UserDataForm({state, setState}: ContactFormProps) {
                             {JSON.stringify(state, null, 2)}
                         </Box>
 
-                        <InputControl name="name" label="Name"/>
-                        <InputControl name="uuid" label="Uuid" />
+                        <InputControl name="name" label="Name" marginY={3}/>
+                        <InputControl name="uuid" label="Uuid" marginY={3}/>
 
 
-                        <ButtonGroup>
+                        <ButtonGroup marginY={5}>
                             <SubmitButton>Submit</SubmitButton>
                         </ButtonGroup>
 

@@ -62,19 +62,15 @@ function ContactForm({state, setState}: UserDataFormProps) {
                         as="form"
                         onSubmit={handleSubmit as any}
                     >
-                        <InputControl name="email" label="Email"/>
-                        <InputControl name="phone" label="Phone" />
-                        <InputControl name="address" label="address" />
+                        <InputControl name="email" label="Email" marginY={3}/>
+                        <InputControl name="phone" label="Phone" marginY={3}/>
+                        <InputControl name="address" label="address" marginY={3}/>
 
-                        <ButtonGroup>
+                        <ButtonGroup marginY={5}>
                             <SubmitButton isLoading={false}>Submit</SubmitButton>
                         </ButtonGroup>
 
-                        {/*<Box as="pre" marginY={10}>*/}
-                        {/*    {JSON.stringify(values, null, 2)}*/}
-                        {/*    <br/>*/}
-                        {/*    {JSON.stringify(errors, null, 2)}*/}
-                        {/*</Box>*/}
+
                     </Box>
                 )}
             </Formik>
