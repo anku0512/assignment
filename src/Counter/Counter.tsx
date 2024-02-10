@@ -46,7 +46,7 @@ function Counter() {
         <Box style={{backgroundColor: '#5078f2', backgroundImage: 'linear-gradient(315deg, #5078f2 0%, #efe9f4 74%)', borderWidth: "1px",
             borderRadius: "8px"}}>
         <Box  style={background}>
-            <Box style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", paddingTop: "15rem"}}>
+            <Box style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", paddingTop: "5rem", paddingBottom: "5rem"}}>
             <Heading>{count}</Heading>
             <Box sx={{display: 'flex', gap: 4}}>
                 <Button colorScheme='blue' onClick={handleMinus}>-</Button>

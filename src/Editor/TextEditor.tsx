@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {EditorProvider, generateHTML} from '@tiptap/react'
+import {BubbleMenu, EditorProvider, generateHTML, useCurrentEditor} from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import {USER_DATA_STORAGE_KEY} from "../App";
-import {Box} from "@chakra-ui/react";
+import {Box, Button} from "@chakra-ui/react";
 import './style.css';
 
 const extensions = [
@@ -12,12 +12,12 @@ const EDITOR_STORAGE_KEY = "editor_data_key"
 
 function TextEditor() {
     const [content, setContent] = useState<any>("testing")
-
+    const { editor } = useCurrentEditor()
     useEffect(() => {
         let x = localStorage.getItem(EDITOR_STORAGE_KEY)
         let y = localStorage.getItem(USER_DATA_STORAGE_KEY)
         if (!x && !y) {
-
+            setContent("testing pagse")
         } else if (x && !y) {
 
         }
@@ -37,9 +37,12 @@ function TextEditor() {
 
     return (
         <Box className='boxLayout'>
-            {content && <EditorProvider extensions={extensions} onUpdate={handleOnUpdate} content={content}>
-                {/*<FloatingMenu>This is the floating menu</FloatingMenu>*/}
-                {/*<BubbleMenu>This is the bubble menu</BubbleMenu>*/}
+            {content && <EditorProvider extensions={extensions} onUpdate={handleOnUpdate} content={content} autofocus={true}>
+
+                <BubbleMenu>
+                    <Button size='xs'>Bold</Button>
+                    <Button size='xs'>Italic</Button>
+                </BubbleMenu>
             </EditorProvider>}
         </Box>
 
