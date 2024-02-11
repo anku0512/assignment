@@ -20,15 +20,11 @@ const validationSchema = Yup.object({
 });
 
 function UserDataForm({state, setState}: UserDataFormProps) {
-    console.log(state)
-    console.log(state?.uuid)
     const initialValues = {
         name: state?.name,
         uuid: state ? state.uuid : "defult",
     };
     const onSubmit = (values: any) => {
-        console.log("onSubmit called")
-        console.log(values)
         setState({
             name: values.name
         });
@@ -42,7 +38,6 @@ function UserDataForm({state, setState}: UserDataFormProps) {
             <Formik
                 initialValues={initialValues}
                 onSubmit={(values, formikHelpers) => {
-                    console.log("form submitted")
                     onSubmit(values);
                     formikHelpers.setSubmitting(false)
                 }}

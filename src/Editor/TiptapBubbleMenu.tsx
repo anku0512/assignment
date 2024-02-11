@@ -2,6 +2,7 @@ import React from 'react';
 import {BubbleMenu, useCurrentEditor} from "@tiptap/react";
 import {Button} from "@chakra-ui/react";
 
+
 function TiptapBubbleMenu() {
     let editorContext = useCurrentEditor();
 

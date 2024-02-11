@@ -6,7 +6,7 @@ import './style.css';
 import TiptapBubbleMenu from "./TiptapBubbleMenu";
 
 const extensions = [
-    StarterKit,
+    StarterKit
 ]
 const EDITOR_STORAGE_KEY = "editor_data_key"
 
@@ -17,20 +17,15 @@ function TextEditor() {
     useEffect(() => {
         let x = localStorage.getItem(EDITOR_STORAGE_KEY)
         let y = localStorage.getItem(USER_DATA_STORAGE_KEY)
-        console.log("TEX EDITOR  x " + x)
-        console.log("TEX EDITOR  y " + y)
 
         // if user data is present then update it in the text editor
         if (y) {
             // if storage data is already present so remove the old user data from editor data if present and add new
             // else just add user data
             if (x && x.includes('<blockquote>')) {
-                console.log("block contins")
                 let split = x.split('</blockquote>');
-                console.log(split)
                 x = `<blockquote>${y}</blockquote>` + split[split.length - 1]
             } else {
-                console.log("no block ")
                 x = `<blockquote>${y}</blockquote>` + (x ? x : "");
             }
         }
