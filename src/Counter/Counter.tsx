@@ -2,10 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {Box, Button, Heading} from "@chakra-ui/react";
 
 
-
-
 const COUNTER_STORAGE_KEY = 'counter_value';
 const MAX_COUNTER_VALUE = 10;
+
 function Counter() {
     const [count, setCount] = useState(0)
 
@@ -43,19 +42,30 @@ function Counter() {
     };
 
     return (
-        <Box style={{backgroundColor: '#5078f2', backgroundImage: 'linear-gradient(315deg, #5078f2 0%, #efe9f4 74%)', borderWidth: "1px",
-            borderRadius: "8px"}}>
-        <Box  style={background}>
-            <Box style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", paddingTop: "5rem", paddingBottom: "5rem"}}>
-            <Heading>{count}</Heading>
-            <Box sx={{display: 'flex', gap: 4}}>
-                <Button colorScheme='blue' onClick={handleMinus}>-</Button>
-                <Button colorScheme= 'blue' onClick={handleReset}>Reset</Button>
-                <Button colorScheme= 'blue' onClick={handleAdd}>+</Button>
-            </Box>
-            </Box>
+        <Box style={{
+            backgroundColor: '#5078f2',
+            backgroundImage: 'linear-gradient(315deg, #5078f2 0%, #efe9f4 74%)',
+            borderWidth: "1px",
+            borderRadius: "8px"
+        }}>
+            <Box style={background}>
+                <Box style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    paddingTop: "5rem",
+                    paddingBottom: "5rem"
+                }}>
+                    <Heading>{count}</Heading>
+                    <Box sx={{display: 'flex', gap: 4}}>
+                        <Button colorScheme='blue' onClick={handleMinus}>-</Button>
+                        <Button colorScheme='blue' onClick={handleReset}>Reset</Button>
+                        <Button colorScheme='blue' onClick={handleAdd}>+</Button>
+                    </Box>
+                </Box>
 
-        </Box>
+            </Box>
         </Box>
     );
 }

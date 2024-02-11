@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import ContactForm from "./Form/ContactForm";
 import UserDataForm from "./Form/UserDataForm";
-import {uuid} from "uuidv4";
 import Counter from "./Counter/Counter";
 import TextEditor from "./Editor/TextEditor";
 import {Box} from "@chakra-ui/react";
@@ -15,19 +14,21 @@ export interface UserData {
     address: string;
     showUserDataJson: boolean;
 }
+
 function MainFormContainer() {
 
     const [userDataState, setUserDataState] = useState<UserData | undefined>()
     useEffect(() => {
         let x = localStorage.getItem(USER_DATA_STORAGE_KEY)
-        if (!x){
+        if (!x) {
             let initUserData = {
                 uuid: crypto.randomUUID(),
                 name: "",
                 email: "",
                 phone: "",
                 address: "",
-            showUserDataJson: false};
+                showUserDataJson: false
+            };
 
             localStorage.setItem(USER_DATA_STORAGE_KEY, JSON.stringify(initUserData));
             console.log(JSON.stringify(initUserData))
@@ -37,13 +38,15 @@ function MainFormContainer() {
         }
 
     }, []);
-    function setStateValue(userData: UserData){
+
+    function setStateValue(userData: UserData) {
         let newData = {
             ...userDataState, ...userData
         }
         localStorage.setItem('initUserData', JSON.stringify(newData));
         setUserDataState(newData)
     }
+
     return (
         <Box sx={{
             display: 'grid',
@@ -53,10 +56,9 @@ function MainFormContainer() {
             margin: 10,
             overflow: "hidden",
         }}>
-            <Counter />
-            <TextEditor />
+            <Counter/>
+            <TextEditor key={crypto.randomUUID()}/>
             <ContactForm state={userDataState} setState={setStateValue}/>
-
             {userDataState && <UserDataForm state={userDataState} setState={setStateValue}/>}
         </Box>
     );

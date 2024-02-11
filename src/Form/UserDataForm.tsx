@@ -1,13 +1,13 @@
-import React, {useEffect} from 'react';
-import {Box, ButtonGroup, Heading, Textarea, Input} from "@chakra-ui/react";
+import React from 'react';
+import {Box, ButtonGroup, Heading} from "@chakra-ui/react";
 import {UserData} from "../MainFormContainer";
 import {Formik} from "formik";
-import {InputControl, ResetButton, SubmitButton} from "formik-chakra-ui";
+import {InputControl, SubmitButton} from "formik-chakra-ui";
 
 import * as Yup from "yup";
 
 
-interface ContactFormProps {
+interface UserDataFormProps {
     state: UserData | undefined,
     setState: Function,
 }
@@ -19,7 +19,7 @@ const validationSchema = Yup.object({
 
 });
 
-function UserDataForm({state, setState}: ContactFormProps) {
+function UserDataForm({state, setState}: UserDataFormProps) {
     console.log(state)
     console.log(state?.uuid)
     const initialValues = {
@@ -29,12 +29,9 @@ function UserDataForm({state, setState}: ContactFormProps) {
     const onSubmit = (values: any) => {
         console.log("onSubmit called")
         console.log(values)
-
         setState({
-            ...state,
             name: values.name
         });
-        return true;
     };
 
 
@@ -56,7 +53,7 @@ function UserDataForm({state, setState}: ContactFormProps) {
                         borderWidth="1px"
                         rounded="lg"
                         shadow="1px 1px 3px rgba(0,0,0,0.3)"
-                        width= "80%"
+                        width="80%"
                         p={6}
                         m="10px auto"
                         as="form"

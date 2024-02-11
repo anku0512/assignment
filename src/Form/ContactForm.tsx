@@ -2,15 +2,13 @@ import React from 'react';
 import {Box, ButtonGroup, Heading} from "@chakra-ui/react";
 import {UserData} from "../MainFormContainer";
 import {Formik} from "formik";
-import {InputControl, ResetButton, SubmitButton} from "formik-chakra-ui";
+import {InputControl, SubmitButton} from "formik-chakra-ui";
 import * as Yup from "yup";
-import {setMaxIdleHTTPParsers} from "node:http";
 
-interface UserDataFormProps {
+interface ContactFormProps {
     state: UserData | undefined,
     setState: Function,
 }
-
 
 
 const validationSchema = Yup.object({
@@ -19,7 +17,8 @@ const validationSchema = Yup.object({
     phone: Yup.string().required(),
     address: Yup.string().required(),
 });
-function ContactForm({state, setState}: UserDataFormProps) {
+
+function ContactForm({state, setState}: ContactFormProps) {
     const initialValues = {
         email: state?.email,
         phone: state?.phone,
@@ -30,10 +29,9 @@ function ContactForm({state, setState}: UserDataFormProps) {
         console.log(values)
 
         setState({
-            ...state,
-                email: values.email,
-                phone: values.phone,
-                address: values.address
+            email: values.email,
+            phone: values.phone,
+            address: values.address
         })
         //window.alert(JSON.stringify(values, null, 2));
         return true;
@@ -41,7 +39,7 @@ function ContactForm({state, setState}: UserDataFormProps) {
     return (
         <Box className='boxLayout'>
 
-            <Heading as='h3' size='lg'> Contact Form </Heading>
+            <Heading as='h3' size='lg' justifyContent='center'> Contact Form </Heading>
             <Formik
                 initialValues={initialValues}
                 onSubmit={(values, formikHelpers) => {
